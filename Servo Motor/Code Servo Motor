@@ -1,0 +1,33 @@
+#include <Servo.h>
+
+Servo servo1;
+Servo servo2;
+Servo servo3;
+Servo servo4;
+
+int pos = 0; // variable to store the servo position
+
+void setup() {
+  servo1.attach(1); // attaches the servo on pin 1
+  servo2.attach(2); // attaches the servo on pin 2
+  servo3.attach(3); // attaches the servo on pin 3
+  servo4.attach(4); // attaches the servo on pin 4
+}
+
+void loop() {
+  for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    servo1.write(pos);
+    servo2.write(pos);
+    servo3.write(pos);
+    servo4.write(pos);
+    delay(15); // waits 15ms for the servo to reach the position
+  }
+  for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+    servo1.write(pos);
+    servo2.write(pos);
+    servo3.write(pos);
+    servo4.write(pos);
+    delay(15); // waits 15ms for the servo to reach the position
+  }
+}
